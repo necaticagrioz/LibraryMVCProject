@@ -1,0 +1,84 @@
+﻿
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 230px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 16px;
+        }
+
+            .sidebar a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 20px;
+                color: #818181;
+                display: block;
+            }
+
+                .sidebar a:hover {
+                    color: #f1f1f1;
+                }
+
+        .main {
+            margin-left: 240px; /* Same as the width of the sidenav */
+            padding: 0px 10px;
+        }
+
+        @@media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+                .sidebar a {
+                    font-size: 18px;
+                }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <a href="/Statistics/Index/"><i class="fa fa-home"></i>&nbsp; Ana Sayfa</a>
+        <a href="/Category/Index/"><i class="fa fa-navicon"></i>&nbsp; Kategori </a>
+        <a href="/Book/Index/"><i class="fa fa bi-book"></i>&nbsp; Kitap </a>
+        <a href="/Author/Index/"><i class="fa fa bi-pencil"></i>&nbsp; Yazar </a>
+        <a href="/Member/Index/"><i class="fa fa-group"></i>&nbsp; Üyeler </a>
+        <a href="/Employee/Index/"><i class="fa fa-street-view"></i>&nbsp; Personel </a>
+        <a href="/OnLoan/OduncVer/"><i class="fa fa-hand-o-right"></i>&nbsp; Ödünç Kitap Ver</a>
+        <a href="/OnLoan/Index/"><i class="fa fa-hand-o-left"></i>&nbsp; Ödünç Kitap Al</a>
+        <a href="/Statistics/Index/"><i class="fa fa-bar-chart-o"></i>&nbsp; İstatistik </a>
+        <a href="/Announcement/Index/"><i class="fa fa-bullhorn"></i>&nbsp; Duyurular </a>
+        <a href="/Process/Index/"><i class="fa fa-building-o"></i>&nbsp; İşlemler </a>
+        <a href="/Statistics/WeatherCard/"><i class="fa fa-cloud"></i>&nbsp; Hava Durumu </a>
+        <a href="/Statistics/Gallery/"><i class="fa fa-th"></i>&nbsp; Galeri </a>
+        <a href="/Showcase/Index/" target="_blank"><i class="fa fa-cubes"></i>&nbsp; Vitrin </a>
+        <a href="/Settings/Index2/"><i class="fa fa-gears"></i>&nbsp; Ayarlar </a>
+        <a href="/Panel/LogOut/"><i class="fa fa-window-close-o"></i>&nbsp; Çıkış </a>
+        
+    </div>
+
+    <div class="main">
+        @RenderBody()
+    </div>
+
+</body>
+</html>

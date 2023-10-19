@@ -1,0 +1,28 @@
+﻿@using LibraryMVCProject.Models.Entity
+@model List<TblPersonel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<br />
+<h2>Personel</h2>
+<table class="table table-bordered">
+    <tr style="background-color: rgb(252, 178, 22)">
+        <th>ID</th>
+        <th>Personel</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var prs in Model)
+    {
+        <tr>
+            <td>@prs.ID</td>
+            <td>@prs.Personel</td>
+            <td><a href="/Employee/PersonelSil/@prs.ID" class="btn btn-danger"style="width:100%">Sil</a></td>
+            <td><a href="/Employee/PersonelGetir/@prs.ID" class="btn btn-primary"style="width:100%">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Employee/PersonelEkle/" class="btn btn-success">Personel Ekle</a>
+

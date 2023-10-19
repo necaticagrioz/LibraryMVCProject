@@ -1,0 +1,27 @@
+﻿@model LibraryMVCProject.Models.Entity.TblAdmin
+@{
+    ViewBag.Title = "AdminGuncelle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("AdminGuncelle", "Settings", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @*@Html.LabelFor(k => k.ID)*@
+        <label>ID</label>
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        <br />
+        @*@Html.LabelFor(k=>k.Ad)*@
+        <label>Kullanıcı Adı</label>
+        @Html.TextBoxFor(k => k.Kullanici, new { @class = "form-control" })
+        <br />
+        <label>Sifre</label>
+        @Html.TextBoxFor(k => k.Sifre, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}
+

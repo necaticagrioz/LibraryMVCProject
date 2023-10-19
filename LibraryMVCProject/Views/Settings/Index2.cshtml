@@ -1,0 +1,58 @@
+﻿@using LibraryMVCProject.Models.Entity
+@model List<TblAdmin>
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kullanıcı Adı</th>
+        <th>Düzenle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Kullanici</td>
+            <td>
+                <a class="btn btn-primary btn-sm" style="width:100%" href="/Settings/AdminGuncelle/@item.ID">
+                    <i class="fas fa-pencil-alt"></i>
+                    Düzenle
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-danger btn-sm" style="width:100%" href="/Settings/AdminSil/@item.ID">
+                    <i class="fas fa-pencil-alt"></i>
+                    Sil
+                </a>
+            </td>
+
+        </tr>
+    }
+</table>
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Admin Ekle</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Admin Ekle</h2>
+            </div>
+            <form method="post" action="/Settings/YeniAdmin">
+                <div class="modal-body">
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" name="Kullanici" class="form-control" />
+                    <label>Şifre</label>
+                    <input type="text" name="Sifre" class="form-control" />
+                    <button class="btn btn-success">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

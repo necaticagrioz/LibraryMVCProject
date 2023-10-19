@@ -1,0 +1,50 @@
+﻿@using LibraryMVCProject.Models.Entity
+@model List<TblKitap>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<br />
+<h2>Kitaplar</h2>
+@using (Html.BeginForm("Index", "Book", FormMethod.Get))
+{
+
+    <div style="margin-bottom:15px; margin-top:15px;">
+        <b>Aramak İstediğiniz Kitap: &nbsp;</b>@Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </div>
+
+}
+
+
+<table class="table table-bordered">
+    <tr style="background-color: rgb(252, 178, 22)">
+        <th>ID</th>
+        <th>Kitap Adı</th>
+        <th>Kitap Yazarı</th>
+        <th>Kategori</th>
+        <th>Basım Yılı</th>
+        <th>Yayınevi</th>
+        <th>Sayfa Sayısı</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.ID</td>
+            <td>@k.Ad</td>
+            <td>@k.TblYazar.Ad&nbsp; @k.TblYazar.Soyad</td>
+            <td>@k.TblKategori.Ad</td>
+            <td>@k.BasimYil</td>
+            <td>@k.Yayinevi</td>
+            <td>@k.Sayfa</td>
+            <td>@k.Durum</td>
+            <td><a href="/Book/KitapSil/@k.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Book/KitapGetir/@k.ID" class="btn btn-primary">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Book/KitapEkle/" class="btn btn-success">Kitap Ekle</a>

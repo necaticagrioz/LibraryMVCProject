@@ -1,0 +1,31 @@
+﻿@model LibraryMVCProject.Models.Entity.TblYazar
+@{
+    ViewBag.Title = "YazarGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("YazarGuncelle", "Author", FormMethod.Post))
+{
+    <br />
+    <div class="form-group">
+        <div style="margin-bottom:15px">
+            <label>ID</label>
+            @Html.TextBoxFor(y => y.ID, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Yazar Adı</label>
+            @Html.TextBoxFor(y => y.Ad, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Yazar Soyadı</label>
+            @Html.TextBoxFor(y => y.Soyad, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Detay</label>
+            @Html.TextAreaFor(y => y.Detay, new { @class = "form-control" })
+        </div>
+        <button class="btn btn-primary">Bilgileri Güncelle</button>
+
+    </div>
+}
+

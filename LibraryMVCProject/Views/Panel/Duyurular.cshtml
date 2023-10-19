@@ -1,0 +1,25 @@
+﻿@using LibraryMVCProject.Models.Entity
+@model List<TblDuyuru>
+@{
+    ViewBag.Title = "Duyurular";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<h2>Duyurular</h2>
+<table class="table table-bordered">
+    <tr style="background-color: rgb(252, 178, 22)">
+        <th>Tarih</th>
+        <th>Başlık</th>
+        <th>İçerik</th>
+    </tr>
+    @foreach (var dyr in Model)
+    {
+        <tr>
+            <td>@Convert.ToDateTime(dyr.Tarih).ToString("dd/MM/yyyy")</td>
+            <td>@dyr.Kategori</td>
+            <td>@dyr.Icerik</td>
+        </tr>
+    }
+</table>
+
+

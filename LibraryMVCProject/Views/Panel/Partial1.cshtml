@@ -1,0 +1,21 @@
+﻿@using LibraryMVCProject.Models.Entity
+@model List<TblDuyuru>
+@foreach (var x in Model)
+{
+
+
+    <div class="post">
+        <div class="user-block">
+            <img class="img-circle img-bordered-sm" src="~/AdminLTE-3.0.4/dist/img/megaphone.jpg" alt="user image" style="width:50px; height:50px">
+            <span class="username">
+                <a href="#">@x.Kategori</a>
+                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+            </span>
+            <span class="description">@x.Tarih.ToString()</span>
+        </div>
+        <p>
+            @x.Icerik
+        </p>
+      
+    </div>
+}

@@ -1,0 +1,27 @@
+﻿@model LibraryMVCProject.Models.Entity.TblDuyuru
+@{
+    ViewBag.Title = "YeniDuyuru";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<br />
+<h2>YeniDuyuru</h2>
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Tarih</label>
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Başlık</label>
+        @Html.TextBoxFor(x => x.Kategori, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>İçerik</label>
+        @Html.TextAreaFor(x => x.Icerik, new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top:15px">
+        <button class="btn btn-primary" id="Btn1">Duyuru Ekle</button>
+
+    </div>
+</form>

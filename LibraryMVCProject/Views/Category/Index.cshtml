@@ -1,0 +1,27 @@
+﻿@using LibraryMVCProject.Models.Entity
+@model List<TblKategori>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kategoriler</h2>
+
+<table class="table table-bordered">
+    <tr style="background-color: rgb(252, 178, 22)">
+        <th>ID</th>
+        <th>Kategori</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var ktg in Model)
+    {
+        <tr>
+            <td>@ktg.ID</td>
+            <td>@ktg.Ad</td>
+            <td><a href="/Category/KategoriSil/@ktg.ID" class="btn btn-danger"style="width:100%">Sil</a></td>
+            <td><a href="/Category/KategoriGetir/@ktg.ID" class="btn btn-primary"style="width:100%">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Category/KategoriEkle" class="btn btn-success">Yeni Kategori Ekle</a>

@@ -1,0 +1,29 @@
+﻿@using LibraryMVCProject.Models.Entity
+@model List<TblHareket>
+@{
+    ViewBag.Title = "KitapGecmis";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Üye: @ViewBag.u1</h2>
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Kitap Adı</th>
+        <th>Personel</th>
+        <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
+        <th>Getirdiği Tarih</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.TblKitap.Ad</td>
+            <td>@x.TblPersonel.Personel</td>
+            <td>@Convert.ToDateTime(x.AlisTarih).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(x.IadeTarih).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(x.UyeGetirTarih).ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,50 @@
+﻿@using LibraryMVCProject.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TblUyeler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<br />
+<h2>Üye</h2>
+
+<table class="table table-bordered">
+    <tr style="background-color: rgb(252, 178, 22)">
+        <th>ID</th>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>Mail</th>
+        <th>Kullanıcı Adı</th>
+        <th>Şifre</th>
+        <th>Telefon</th>
+        <th>Okul</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Üye Kitap Geçmişi</th>
+    </tr>
+    @foreach (var uye in Model)
+    {
+        <tr>
+            <td>@uye.ID</td>
+            <td>@uye.Ad</td>
+            <td>@uye.Soyad</td>
+            <td>@uye.Mail</td>
+            <td>@uye.KullaniciAdi</td>
+            <td>@uye.Sifre</td>
+            <td>@uye.Telefon</td>
+            <td>@uye.Okul</td>
+            <td><a href="/Member/UyeSil/@uye.ID" class="btn btn-danger" style="width:100%">Sil</a></td>
+            <td><a href="/Member/UyeGetir/@uye.ID" class="btn btn-primary" style="width:100%">Güncelle</a></td>
+            <td><a href="/Member/KitapGecmis/@uye.ID" class="btn btn-success" style="width:100%">İncele</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfalar => Url.Action("Index", new { sayfalar }))
+
+
+
+
+<a href="/Member/UyeEkle/" class="btn btn-success">Üye Ekle</a>
+

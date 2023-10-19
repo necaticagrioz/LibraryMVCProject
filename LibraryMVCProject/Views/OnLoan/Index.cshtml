@@ -1,0 +1,47 @@
+﻿@using LibraryMVCProject.Models.Entity
+@model List<TblHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<br />
+<h2>Ödünç Kitap Listesi</h2>
+
+@*@using (Html.BeginForm("Index", "Book", FormMethod.Get))
+    {
+
+        <div style="margin-bottom:15px; margin-top:15px;">
+            <b>Aramak İstediğiniz Kitap: &nbsp;</b>@Html.TextBox("p")
+            <input type="submit" value="Ara" />
+        </div>
+
+    }*@
+
+
+<table class="table table-striped">
+    <tr style="background-color: rgb(252, 178, 22)">
+        <th>ID</th>
+        <th>Kitap Adı</th>
+        <th>Üye</th>
+        <th>Personel</th>
+        <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
+        <th>İade Al</th>
+
+
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.ID</td>
+            <td>@k.TblKitap.Ad</td>
+            <td>@k.TblUyeler.Ad&nbsp; @k.TblUyeler.Soyad</td>
+            <td>@k.TblPersonel.Personel</td>
+            <td>@Convert.ToDateTime(k.AlisTarih).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(k.IadeTarih).ToString("dd/MM/yyyy")</td>
+            <td><a href="/OnLoan/OduncIade/@k.ID" class="btn btn-success">İade Al</a></td>
+        </tr>
+    }
+</table>
+
